@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://e6aukcqspul1"]
+[gd_scene load_steps=8 format=3 uid="uid://e6aukcqspul1"]
 
 [ext_resource type="Texture2D" uid="uid://pucgh0qbmij" path="res://assets/Bg.png" id="1_ig7tw"]
+[ext_resource type="FontFile" uid="uid://cwd1tkm36irny" path="res://assets/pixel_font.ttf" id="2_0xm2m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(20, 120)
@@ -56,6 +57,7 @@ shape = SubResource("RectangleShape2D_ig7tw")
 
 [node name="Ball" type="CharacterBody2D" parent="."]
 position = Vector2(576, 324)
+collision_mask = 3
 
 [node name="ColorRect" type="ColorRect" parent="Ball"]
 anchors_preset = 8
@@ -74,6 +76,7 @@ grow_vertical = 2
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="Borders" type="StaticBody2D" parent="."]
+collision_layer = 2
 
 [node name="Top" type="CollisionShape2D" parent="Borders"]
 position = Vector2(576, -26)
@@ -94,3 +97,23 @@ shape = SubResource("RectangleShape2D_lquwl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreRight"]
 position = Vector2(1179, 324)
 shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="CPUScore" type="Label" parent="HUD"]
+offset_left = 473.0
+offset_top = 5.0
+offset_right = 523.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("2_0xm2m")
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="PlayerScore" type="Label" parent="HUD"]
+offset_left = 640.0
+offset_top = 5.0
+offset_right = 690.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("2_0xm2m")
+theme_override_font_sizes/font_size = 50
+text = "0"
