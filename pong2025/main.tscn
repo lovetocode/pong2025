@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://e6aukcqspul1"]
+[gd_scene load_steps=7 format=3 uid="uid://e6aukcqspul1"]
 
 [ext_resource type="Texture2D" uid="uid://pucgh0qbmij" path="res://assets/Bg.png" id="1_ig7tw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(20, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(1152, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(1152, 50.1875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(54.25, 648)
 
 [node name="Main" type="Sprite2D"]
 texture_filter = 1
@@ -41,3 +53,44 @@ grow_vertical = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CPU"]
 position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="Ball" type="CharacterBody2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="ColorRect" type="ColorRect" parent="Ball"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="Borders" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Borders"]
+position = Vector2(576, -26)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="Botton" type="CollisionShape2D" parent="Borders"]
+position = Vector2(576, 673.09375)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="ScoreLeft" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreLeft"]
+position = Vector2(-26.75, 324)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="ScoreRight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreRight"]
+position = Vector2(1179, 324)
+shape = SubResource("RectangleShape2D_lquwl")
