@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://e6aukcqspul1"]
+[gd_scene load_steps=10 format=3 uid="uid://e6aukcqspul1"]
 
 [ext_resource type="Texture2D" uid="uid://pucgh0qbmij" path="res://assets/Bg.png" id="1_ig7tw"]
 [ext_resource type="FontFile" uid="uid://cwd1tkm36irny" path="res://assets/pixel_font.ttf" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://c0edv0alvpn0t" path="res://main.gd" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://bajpfctf5v6i7" path="res://player.gd" id="3_1bvp3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(20, 120)
@@ -22,9 +24,11 @@ size = Vector2(54.25, 648)
 texture_filter = 1
 texture = ExtResource("1_ig7tw")
 centered = false
+script = ExtResource("2_h2yge")
 
 [node name="Player" type="StaticBody2D" parent="."]
 position = Vector2(50, 384)
+script = ExtResource("3_1bvp3")
 
 [node name="ColorRect" type="ColorRect" parent="Player"]
 anchors_preset = 4
@@ -117,3 +121,7 @@ offset_bottom = 55.0
 theme_override_fonts/font = ExtResource("2_0xm2m")
 theme_override_font_sizes/font_size = 50
 text = "0"
+
+[node name="BallTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
